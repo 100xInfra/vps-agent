@@ -76,7 +76,7 @@ npm install -g pm2
 
 # Start the application with PM2
 echo -e "\n${YELLOW}🚀 Starting the VPS Agent with PM2...${NC}"
-pm2 start ecosystem.js
+pm2 start ecosystem.config.js
 pm2 save
 pm2 startup
 

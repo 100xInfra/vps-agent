@@ -1,8 +1,32 @@
-[ 2025-02-17 00:23:02 ] - error - Stats weren't successfully. - AggregateError
-[ 2025-02-17 00:24:01 ] - error - Stats weren't successfully. - AggregateError
-[ 2025-02-17 00:25:01 ] - error - Stats weren't successfully. - AggregateError
-[ 2025-02-17 00:26:01 ] - error - Stats weren't successfully. - AggregateError
-[ 2025-02-17 00:29:01 ] - error - "An unexpected error occurred" |  
+[ 2025-02-17 00:32:01 ] - error - "An unexpected error occurred" |  
+Stack Trace: AggregateError
+    at Function.AxiosError.from (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/axios/lib/core/AxiosError.js:92:14)
+    at RedirectableRequest.handleRequestError (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/axios/lib/adapters/http.js:620:25)
+    at RedirectableRequest.emit (node:events:507:28)
+    at RedirectableRequest.emit (node:domain:489:12)
+    at ClientRequest.eventHandlers.<computed> (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/follow-redirects/index.js:49:24)
+    at ClientRequest.emit (node:events:507:28)
+    at ClientRequest.emit (node:domain:489:12)
+    at emitErrorEvent (node:_http_client:104:11)
+    at Socket.socketErrorListener (node:_http_client:518:5)
+    at Socket.emit (node:events:507:28)
+    at Axios.request (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[ 2025-02-17 00:33:01 ] - error - "An unexpected error occurred" |  
+Stack Trace: AggregateError
+    at Function.AxiosError.from (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/axios/lib/core/AxiosError.js:92:14)
+    at RedirectableRequest.handleRequestError (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/axios/lib/adapters/http.js:620:25)
+    at RedirectableRequest.emit (node:events:507:28)
+    at RedirectableRequest.emit (node:domain:489:12)
+    at ClientRequest.eventHandlers.<computed> (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/follow-redirects/index.js:49:24)
+    at ClientRequest.emit (node:events:507:28)
+    at ClientRequest.emit (node:domain:489:12)
+    at emitErrorEvent (node:_http_client:104:11)
+    at Socket.socketErrorListener (node:_http_client:518:5)
+    at Socket.emit (node:events:507:28)
+    at Axios.request (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/axios/lib/core/Axios.js:45:41)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[ 2025-02-17 00:34:01 ] - error - "An unexpected error occurred" |  
 Stack Trace: AggregateError
     at Function.AxiosError.from (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/axios/lib/core/AxiosError.js:92:14)
     at RedirectableRequest.handleRequestError (/Users/vineetagarwal/Development/work/100xInfra-code/vps-agent/node_modules/axios/lib/adapters/http.js:620:25)

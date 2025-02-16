@@ -1,5 +1,5 @@
-import { Cron } from "./services/cron";
-import Logger from "./libraries/winston";
+import { Cron } from "@/services/cron";
+import Logger from "@/libraries/winston";
 
 const Log = Logger.getInstance();
 

@@ -18,9 +18,9 @@ export class Cron {
     private Log = Logger.getInstance();
     private systemMonitor = SystemMonitor.getInstance();
     public async start() {
-        this.Log.info('Starting cron service');
+        this.Log.info("Starting cron service");
         cron.schedule('* * * * *', async () => {
-            this.Log.info('Cron job running');
+            this.Log.info("Cron job running");
             this.systemMonitor.sendStatsToBackend();
         });
     }

@@ -1,0 +1,39 @@
+{
+  "name": "vps-agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "_moduleAliases": {
+    "@": "dist/"
+  },
+  "scripts": {
+    "start:prod": "node -r ./alias/alias.js dist/index.js",
+    "build": "tsc",
+    "dev": "nodemon --exec 'ts-node -r tsconfig-paths/register' src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/100xInfra/vps-agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/100xInfra/vps-agent/issues"
+  },
+  "homepage": "https://github.com/100xInfra/vps-agent#readme",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "module-alias": "^2.2.3",
+    "nodemon": "^3.1.9",
+    "path": "^0.12.7",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3",
+    "winston": "^3.17.0",
+    "winston-cloudwatch": "^6.3.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4"
+  }
+}

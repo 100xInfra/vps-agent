@@ -3,38 +3,34 @@
  * 
  * This module is responsible for creating a logger using the Winston library.
  * 
- * @version 1.0.0
+ * @version 1.0.2
  * @author Vineet Agarwal
  */
 import winston, { format, createLogger, transports } from "winston";
 import DailyRotateFile from "winston-daily-rotate-file";
-import Utils from "../../utils/utils";
+import Utils from "@/utils";
 import path from "path";
-import "dotenv/config";
-import { Singleton  } from "../../helpers/singleton";
+import { Singleton } from "@/helpers/singleton";
 
 // Destructure the format object from winston
 const { combine, timestamp, printf, colorize } = format;
-
 
 /**
  * Logger class.
  * 
  * This class has all the functions to log messages at different levels.
  * 
- * @version 1.0.0
+ * @version 1.0.2
  * @extends Singleton
  * @class Logger
  */
 class Logger extends Singleton {
-    /**
-     * @var {winston.Logger} logger The logger object.
-     */
     private logger: winston.Logger;
 
     protected constructor() {
         super(); // Ensures singleton behavior via base class
 
+        // Custom format for the logger
         const customFormat = printf(({ level, message, timestamp }) => {
             return `[ ${Utils.formatTimestamp(timestamp as string)} ] - ${level} - ${message}`;
         });
@@ -80,29 +76,59 @@ class Logger extends Singleton {
         });
     }
 
-    // Use the correct type signature that matches the base class
     public static getInstance(): Logger {
         return Singleton.getInstance.call(this) as Logger;
     }
 
-    public info(message: string) {
-        this.logger.info(message);
+    /**
+     * Logs an info message.
+     * @param {...any} args - Multiple arguments to log.
+     */
+    public info(...args: any[]) {
+        this.logger.info(this.formatMessage(args));
     }
 
-    public error(message: string) {
-        this.logger.error(message);
+    /**
+     * Logs an error message.
+     * @param {...any} args - Multiple arguments to log.
+     */
+    public error(...args: any[]) {
+        this.logger.error(this.formatMessage(args));
     }
 
-    public warn(message: string) {
-        this.logger.warn(message);
+    /**
+     * Logs a warning message.
+     * @param {...any} args - Multiple arguments to log.
+     */
+    public warn(...args: any[]) {
+        this.logger.warn(this.formatMessage(args));
     }
 
-    public http(message: string) {
-        this.logger.log("http", message);
+    /**
+     * Logs an HTTP message.
+     * @param {...any} args - Multiple arguments to log.
+     */
+    public http(...args: any[]) {
+        this.logger.log("http", this.formatMessage(args));
     }
 
-    public debug(message: string) {
-        this.logger.debug(message);
+    /**
+     * Logs a debug message.
+     * @param {...any} args - Multiple arguments to log.
+     */
+    public debug(...args: any[]) {
+        this.logger.debug(this.formatMessage(args));
+    }
+
+    /**
+     * Formats multiple arguments into a single log message.
+     * @param {any[]} args - The arguments to format.
+     * @returns {string} - The formatted log message.
+     */
+    private formatMessage(args: any[]): string {
+        return args
+            .map((arg) => (arg instanceof Error ? `${arg.message} \nStack Trace: ${arg.stack}` : JSON.stringify(arg)))
+            .join(" | ");
     }
 }
 

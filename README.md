@@ -8,10 +8,11 @@ To install and set up the VPS Agent, run the following command in your terminal:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/100xInfra/vps-agent/main/install.sh | bash
-```
+``````
 This script will:
 	•	Install necessary dependencies (Git, Node.js, Curl, Unzip, etc.)
 	•	Clone the repository
 	•	Build the application
 	•	Set up logging and process management with PM2
 	•	Start the VPS Agent service
+

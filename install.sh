@@ -7,6 +7,7 @@ set -e
 APP_DIR="$HOME/infra-vps-agent"
 REPO_URL="https://github.com/100xInfra/vps-agent.git"
 BRANCH="main" 
+API_KEY="$1"
 
 # Color codes (Use \033 instead of \e for better compatibility)
 GREEN="\033[1;32m"
@@ -20,6 +21,14 @@ divider="--------------------------------------------------"
 echo -e "\n${CYAN}$divider${NC}"
 echo -e "${GREEN} 🚀 VPS Agent Installation Script ${NC}"
 echo -e "${CYAN}$divider${NC}\n"
+
+# Check if API Key is provided
+if [ -z "$API_KEY" ]; then
+    echo -e "${RED}❌ API Key is missing! Please provide the API Key as an argument.${NC}"
+    echo -e "${YELLOW}👉 Usage: ./install.sh <API_KEY>${NC}"
+    exit 1
+fi
+echo -e "${GREEN}✅ API Key received: $API_KEY${NC}"
 
 # Check if Homebrew is installed
 echo -e "${YELLOW}🔍 Checking for Homebrew...${NC}"
@@ -63,6 +72,9 @@ npm install
 # Build the project
 echo -e "\n${YELLOW}⚙ Building the application...${NC}"
 npm run build
+
+echo -e "${GREEN}\n📜 Storing API Key...${NC}"
+echo "API_KEY=$API_KEY" > .env
 
 # Set up logging directories
 echo -e "\n${YELLOW}📁 Setting up logging directories...${NC}"
